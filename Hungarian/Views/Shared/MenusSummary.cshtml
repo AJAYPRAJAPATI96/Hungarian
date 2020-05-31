@@ -1,0 +1,22 @@
+﻿@model Menu
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <img src="@Model.ImageThumbnailUrl" class="rounded mx-auto d-block" style="width:300px;height:244px;" alt="" />
+        
+        <div class="caption text-center">
+            <h3>@Model.Price.ToString("c")</h3>
+            <h3>
+                <a asp-controller="Menu" asp-action="Details" asp-route-menuId="@Model.MenuId">@Model.Name</a>
+            </h3>
+            <p>@Model.ShortDescription</p>
+        </div>
+        <div class="addToCart text-center">
+            <p class="button">
+                <a class="btn btn-success" id="cartButton" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-menuId="@Model.MenuId">
+                    Add to cart
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

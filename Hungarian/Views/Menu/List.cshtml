@@ -1,0 +1,8 @@
+﻿@model MenuListViewModel
+
+<div class="row marginTop">
+    @foreach (var menu in Model.Menus)
+    {
+        @Html.Partial("MenusSummary", menu)
+    }
+</div>

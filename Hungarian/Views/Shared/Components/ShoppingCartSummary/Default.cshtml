@@ -1,0 +1,35 @@
+﻿@model ShoppingCartViewModel
+
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@inject SignInManager<IdentityUser> SignInManager
+
+
+@if (Model.ShoppingCart.ShoppingCartItems.Count > 0 && SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a asp-controller="ShoppingCart">
+            @*<span class="glyphicon glyphicon-shopping-cart"></span>*@
+            <img src="~/Images/Added Cart.png" height=40px />
+            @*<span id="cart-status">
+
+
+                    @Model.ShoppingCart.ShoppingCartItems.Count
+                </span>*@
+        </a>
+    </li>
+}
+else
+{<li class="nav-item">
+    
+        @*<span class="glyphicon glyphicon-shopping-cart"></span>*@
+        <img src="~/Images/iconfinder_simpline_41_2305621.png" height=40px />
+        @*<span id="cart-status">
+
+
+                @Model.ShoppingCart.ShoppingCartItems.Count
+            </span>*@
+    
+</li>
+
+}

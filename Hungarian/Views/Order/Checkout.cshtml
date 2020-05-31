@@ -1,0 +1,116 @@
+﻿@model Hungarian.Models.Dishes.Order
+
+    <h3 class="text-center">You are just one step away from ordering your food.</h3>
+    @*<label asp-for="OrderId" class="control-label"></label>
+    <input asp-for="OrderId" class="form-control" />*@
+    <div class="row">
+        <div class="orderForm col-md-4  pt-4">
+            <form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <div>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <div>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AddressLine1" class="control-label"></label>
+                    <div>
+                        <input asp-for="AddressLine1" class="form-control" />
+                        <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AddressLine2" class="control-label"></label>
+                    <div>
+                        <input asp-for="AddressLine2" class="form-control" />
+                        <span asp-validation-for="AddressLine2" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ZipCode" class="control-label"></label>
+                    <div>
+                        <input asp-for="ZipCode" class="form-control" />
+                        <span asp-validation-for="ZipCode" class="text-danger"></span>
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                <label asp-for="City" class="col-md-2 control-label"></label>
+                <div class="col-md-5">
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+
+        <div class="form-group">
+            <label asp-for="State" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Country" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+        </div>
+                *@
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <div>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <div>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="btn-group col-md-offset-2 col-md-8">
+                        <input class="btn btn-success" type="submit" value="Complete order" />
+                        @*<input class="btn btn-default" type="submit" value="Return " />*@
+                    </div>
+                </div>
+
+            </form>
+        </div> 
+        <div class="col-md-8 py-auto">
+    
+            <div>
+       
+                <video autoplay muted loop class="position-absolute w-100 h-100 rounded">
+
+                   
+                        <source src="~/video/Pizza%20-%20176.mp4" type="video/mp4" />
+                   
+                   
+
+                    Your browser does not support HTML5 video.
+
+                </video>
+   
+            </div>
+          </div>
+</div>
+        

@@ -1,0 +1,27 @@
+﻿
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script type="text/javascript" language="javascript">
+        function GetDateTime() {
+            var param1 = new Date();
+            var param2 = new Date();
+            var param3 = param1.getDate() + '/' + (param1.getMonth() + 1) + '/' + param1.getFullYear();
+            var param4 = param2.getHours() + ':' + param2.getMinutes() + ':' + param2.getSeconds();
+            document.getElementById('date').innerHTML = param3;
+            document.getElementById('time').innerHTML = param4;
+
+        }
+    </script>
+</head>
+<body onload="GetDateTime()">
+    <form id="form1" runat="server">
+        <p>
+            Date : <span id="date"></span>
+            Time : <span id="time"></span>
+        </p>
+    </form>
+</body>
+</html>
+

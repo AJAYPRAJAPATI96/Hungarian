@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hungarian</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3" style="height: 55px;" >
+            <div class="container-fluid">
+
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/Images/hungWithScooty.png" style="height:30px;width:auto" />
+                </a>
+                @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Hungarian</a>*@
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1" style="padding-top: 1%;" >
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        @*<li>
+                <a class="nav-link text-light" asp-area="" asp-controller="FoodMangs" asp-action="Index">Menu</a>
+        </li>*@
+                       @await Component.InvokeAsync("CategoryMenu")
+                        @*<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" asp-area="" asp-controller="FoodMangs" asp-action="ItemsDisplay">Chinese</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="FoodMangs" asp-action="ItemsDisplay">Italian</a>
+                                 <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+                                </li>*@
+                        <li>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Feedbacks" asp-action="Index">Feedback</a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>*@
+                          @await Component.InvokeAsync("ShoppingCartSummary")
+                    <li>
+                        <form class="navbar-form" asp-controller="Menu" asp-action="Search" method="get">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search for a dish" name="searchString" value="@ViewData["searchString"]" style="background-color: white;
+                                                background-image: url(https://www.w3schools.com/css/searchicon.png);
+                                                background-position: 10px 7px;
+                                                background-repeat: no-repeat;
+                                                padding-left: 40px;
+                                            ">
+                            </div>
+                        </form>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div class="text-right"><div class="float-left"><img src="~/Images/hungarianLogo.png" style="height:70px;width:auto;" /></div><partial name="Footer_PartialView" /></div>
+        </div>
+    </footer>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                <div class="text-right"><div class="float-left"><img src="~/Images/hungarianLogo.png" style="height:70px;width:auto;" /></div> &copy; 2020 - RollLogin - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></div>
+            </div>
+        </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

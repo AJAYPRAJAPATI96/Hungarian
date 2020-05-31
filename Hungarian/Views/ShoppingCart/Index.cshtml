@@ -1,0 +1,59 @@
+﻿@model Hungarian.ViewModels.ShoppingCartViewModel
+
+<div class="row">
+
+    <h2>Your shopping cart</h2>
+</div>
+<h4>Here are the Dishes in your shopping cart.</h4>
+<div class="row">
+    <div class="checkoutForm w-100">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Selected amount</th>
+                    <th>Dishes</th>
+                    <th class="text-right">Price</th>
+                    <th class="text-right">Subtotal</th>
+                    <th class="text-right text-danger">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+                {
+                    <tr>
+                        <td class="text-center">@line.Amount</td>
+                        <td class="text-left">@line.Menu.Name</td>
+                        <td class="text-right">@line.Menu.Price.ToString("c")</td>
+                        <td class="text-right">
+                            @((line.Amount * line.Menu.Price).ToString("c"))
+                        </td>
+                        <td class="text-center"><a class="text-danger" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-menuId="@line.Menu.MenuId">X</a></td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">Total:</td>
+                    <td class="text-right">
+                        @Model.ShoppingCartTotal.ToString("c")
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="text-right">
+            <div class="btn-group ">
+                <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Check out</a>
+                <a class="btn-group">
+                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        Add more dishes<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a asp-controller="Menu" asp-action="List" asp-route-category="Snacks">Snacks</a></li>
+                        <li><a asp-controller="Menu" asp-action="List" asp-route-category="Main Course">Main Course</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

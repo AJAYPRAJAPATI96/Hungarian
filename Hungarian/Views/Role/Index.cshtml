@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole"
+   asp-controller="Role">Add new role</a>
+
+    @foreach (var role in Model)
+    {
+<div class="card mb-3">
+    <div class="card-header">
+        Role Id : @role.Id
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@role.Name</h5>
+    </div>
+    <div class="card-footer">
+        <a asp-controller="Role" asp-action="EditRole"
+           asp-route-id="@role.Id" class="btn btn-primary">
+            Edit
+        </a>
+        
+    </div>
+</div>
+    }
